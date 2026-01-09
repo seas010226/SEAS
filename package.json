@@ -1,6 +1,6 @@
 {
-  "name": "seas-extension",
-  "description": "Steve's Extension for AppSheet (SEAS)",
+  "name": "seas",
+  "description": "Steve's Extension for AppSheet",
   "private": true,
   "version": "0.1.0",
   "repository": {
