@@ -1,0 +1,31 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Square -->
+  <rect width="512" height="512" fill="#2D2D2D" rx="60" />
+  
+  <!-- Quadrant Lines -->
+  <line x1="256" y1="40" x2="256" y2="472" stroke="#555555" stroke-width="6" />
+  <line x1="40" y1="256" x2="472" y2="256" stroke="#555555" stroke-width="6" />
+  
+  <!-- Heavy Geometric Sans Style -->
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      src: local('Montserrat-Black'), local('Montserrat-Bold'), local('sans-serif');
+    }
+    .text { 
+      font-family: 'Montserrat', sans-serif; 
+      font-weight: 900; 
+      font-size: 190px; 
+      text-anchor: middle; 
+      dominant-baseline: central; 
+    }
+  </style>
+  
+  <!-- Top: White SE -->
+  <text x="138" y="138" fill="#FFFFFF" class="text">S</text>
+  <text x="374" y="138" fill="#FFFFFF" class="text">E</text>
+  
+  <!-- Bottom: AppSheet Blue AS -->
+  <text x="138" y="374" fill="#1A73E8" class="text">A</text>
+  <text x="374" y="374" fill="#1A73E8" class="text">S</text>
+</svg>
