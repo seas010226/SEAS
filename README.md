@@ -1,5 +1,7 @@
 # SEAS (Steve's Extension for AppSheet)
 
+> [!WARNING] > **SEAS is currently in early Alpha.** Expect radical changes and breaking updates as the project evolves. This extension is for experimental use only.
+
 **SEAS** is a Chrome extension designed to augment and enhance the AppSheet app editor and other aspects of appsheet.com.
 
 ## Currently Supported Features
