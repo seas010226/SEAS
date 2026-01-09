@@ -19,7 +19,19 @@ Download the complete definition of the app currently being edited in the AppShe
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Architecture**: [Feature-Sliced Design (FSD)](https://feature-sliced.design/)
 
-## Installation (Development)
+## Installation (Non-Developers)
+
+If you just want to use the extension without setting up a development environment:
+
+1.  **Download the Extension**: Go to the [Releases](https://github.com/YOUR_USERNAME/SEAS/releases) page and download the latest `SEAS-vX.X.X-chrome.zip`.
+2.  **Unzip the File**: Extract the zip archive to a folder on your computer.
+3.  **Load in Chrome**:
+    - Open `chrome://extensions`
+    - Enable **Developer mode** (top right toggle)
+    - Click **Load unpacked**
+    - Select the folder you just extracted.
+
+## Installation (Developers)
 
 1.  **Clone the repository**:
     ```bash
