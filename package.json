@@ -2,7 +2,7 @@
   "name": "seas",
   "description": "Steve's Extension for AppSheet",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1-dev",
   "repository": {
     "type": "git",
     "url": "https://github.com/seas010226/SEAS.git"
@@ -16,7 +16,8 @@
     "zip": "wxt zip",
     "zip:firefox": "wxt zip -b firefox",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "postinstall": "wxt prepare"
+    "postinstall": "wxt prepare",
+    "release": "npm run zip && echo '\nDONE! Now create a tag and push to GitHub:\n  git tag v$(node -p \"require(\\'./package.json\\').version\")\n  git push origin --tags\n'"
   },
   "devDependencies": {
     "@tsconfig/svelte": "^5.0.6",
