@@ -2,7 +2,7 @@
   "name": "seas",
   "description": "Steve's Extension for AppSheet",
   "private": true,
-  "version": "0.0.1-dev",
+  "version": "0.0.2-dev",
   "repository": {
     "type": "git",
     "url": "https://github.com/seas010226/SEAS.git"
@@ -28,5 +28,8 @@
     "tslib": "^2.8.1",
     "typescript": "^5.9.3",
     "wxt": "^0.20.6"
+  },
+  "dependencies": {
+    "fflate": "^0.8.2"
   }
 }

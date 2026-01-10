@@ -25,7 +25,7 @@ Download the complete definition of the app currently being edited in the AppShe
 
 If you just want to use the extension without setting up a development environment:
 
-1.  **Download the Extension**: Go to the [Releases](https://github.com/seas010226/SEAS/releases) page and download the latest `seas-0.0.1-dev-chrome.zip`.
+1.  **Download the Extension**: Go to the [Releases](https://github.com/seas010226/SEAS/releases) page and download the latest `seas-0.0.2-dev-chrome.zip`.
 2.  **Unzip the File**: Extract the zip archive to a folder on your computer.
 3.  **Load in Chrome**:
     - Open `chrome://extensions`
