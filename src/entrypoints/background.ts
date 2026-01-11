@@ -5,7 +5,7 @@ export default defineBackground(() => {
       await browser.scripting.executeScript({
         target: { tabId: tab.id },
         func: () => {
-          window.dispatchEvent(new CustomEvent('SEAS_TRIGGER_DOWNLOAD'));
+          window.dispatchEvent(new CustomEvent('SEAS_TOGGLE_EXPLORER'));
         },
       });
     }
