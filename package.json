@@ -2,7 +2,7 @@
   "name": "seas",
   "description": "Steve's Extension for AppSheet",
   "private": true,
-  "version": "0.0.3-dev",
+  "version": "0.0.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/seas010226/SEAS.git"
