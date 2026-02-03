@@ -25,7 +25,7 @@ function init() {
   const initialProps = readProperties(appTemplate);
 
   const listContainer = createVirtualList(initialProps);
-  
+
   // Initial view has no siblings to navigate to
   explorer.pushView(listContainer, 'App Definition');
 
@@ -42,17 +42,17 @@ function createVirtualList(props) {
   // Container: flex align center.
   // It seems roughly 36px or 40px. Let's pick 36px for now.
   const ROW_HEIGHT = 36;
-  
+
   const vList = new VirtualList(props, ROW_HEIGHT, (node, prop) => {
     node.setAttribute('key', prop.key);
     node.setAttribute('type', prop.type);
     node.setAttribute('expandable', String(prop.isExpandable));
     node.data = prop.value;
   });
-  
+
   const container = vList.getElement();
   container._seasProps = props; // Store full props for navigation lookup
-  
+
   return container;
 }
 
@@ -60,16 +60,16 @@ function handleNavigate(e, explorer) {
   // e.target is retargeted to the Shadow Host (seas-explorer) because of Shadow DOM.
   // We must use the explicit node passed in detail.
   const clickedNode = e.detail.node;
-  
+
   // In VirtualList, the node is inside 'content' div, inside 'container' div.
   // But we don't rely on parent structure for data.
   // We rely on the *path* or just passing the navigation logic.
-  
+
   // WAIT. 'handleNavigate' logic utilized `listContainer.children` to find SIBLINGS.
   // With VirtualList, DOM siblings DO NOT EXIST for off-screen items.
   // We CANNOT use DOM Traversal to find next/prev keys anymore.
   // We MUST pass the full property list (context) to the navigation handler or lookup.
-  
+
   // To fix this:
   // 1. When we create the VirtualList, we have the 'props' array.
   // 2. We can't attach it to the DOM node easily without leaking.
@@ -77,29 +77,29 @@ function handleNavigate(e, explorer) {
   // 4. We need to know WHICH index in the 'props' array this node corresponds to.
   //    Fortunately, `VirtualList` can tell us index? Or we can look up by key?
   //    Keys might not be unique in some weird structures, but usually are in object. Arrays? indices.
-  
+
   // Solution:
   // We need to look up the clicked prop in the *source list*.
   // But we handled 'navigate' globally on the explorer.
   // We don't have access to the 'props' array of the *current view* here easily, 
   // *unless* we stored it on the view element or something.
-  
+
   // Refactor: Store 'props' on the container?
   // listContainer.dataset.props? No, too big.
   // listContainer._props = props;
-  
+
   const listContainer = getVirtualContainer(clickedNode);
   const props = listContainer?._seasProps || [];
-  
+
   // Find index in the PROPS array, not DOM
   const clickedKey = clickedNode.getAttribute('key');
   // Matching by reference might be hard if we use objects.
   // We passed `prop.value` to node.data.
   // Let's use referencing the original prop object?
   // Or just find index by key?
-  
+
   const currentIndex = props.findIndex(p => p.key === clickedKey);
-  
+
   navigateToNode(props, currentIndex, explorer, 'push');
 }
 
@@ -124,17 +124,17 @@ function navigateToNode(allProps, index, explorer, mode = 'push', direction = 'n
   const key = targetProp.key;
   const targetData = targetProp.value;
   const newProps = readProperties(targetData);
-  
+
   const newList = createVirtualList(newProps);
   newList._seasProps = newProps; // Store for Sibling Lookup
-  
+
   // Define Handlers
   const navHandlers = {};
-  
+
   // Find Prev Expandable
   let prevIndex = index - 1;
   let targetPrevIndex = -1;
-  while(prevIndex >= 0) {
+  while (prevIndex >= 0) {
     if (allProps[prevIndex].isExpandable) { // Use Prop data, not DOM attribute
       targetPrevIndex = prevIndex;
       break;
@@ -151,7 +151,7 @@ function navigateToNode(allProps, index, explorer, mode = 'push', direction = 'n
   // Find Next Expandable
   let nextIndex = index + 1;
   let targetNextIndex = -1;
-  while(nextIndex < allProps.length) {
+  while (nextIndex < allProps.length) {
     if (allProps[nextIndex].isExpandable) {
       targetNextIndex = nextIndex;
       break;

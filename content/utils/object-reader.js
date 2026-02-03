@@ -9,7 +9,7 @@ export function readProperties(obj) {
   }
 
   const props = [];
-  
+
   // Safe property extraction
   let keys;
   try {
@@ -38,7 +38,7 @@ export function readProperties(obj) {
         isExpandable = Reflect.ownKeys(value).length > 0; // Check if it has own keys
       } else if (type === 'function') {
         // Functions are generally terminal in this view unless we want to inspect prototypes later
-        isExpandable = false; 
+        isExpandable = false;
       }
     } catch (err) {
       value = '<restricted>';

@@ -9,7 +9,7 @@
     "scripting"
   ],
   "host_permissions": [
-    "https://www.appsheet.com/template/AppDef"
+    "https://www.appsheet.com/*"
   ],
   "action": {
     "default_popup": "popup/popup.html",
@@ -20,7 +20,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://www.appsheet.com/template/AppDef*"],
+      "matches": ["https://www.appsheet.com/template/AppDef?*"],
       "js": ["content/loader.js"],
       "css": ["content/styles.css"],
       "run_at": "document_end"
