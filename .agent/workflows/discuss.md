@@ -7,3 +7,4 @@ description: Engage in a prolonged, focused discussion without pressure to imple
 3.  **Deep Dive**: Focus on exploring the topic, asking clarifying questions, and debating options.
 4.  **No "Next Steps"**: Do not end responses with "Shall we proceed?" or "Ready to implement?". Simply answer the current point and await further thought.
 5.  **Persistence**: Maintain this mode until the user explicitly signals a desire to switch back to "Execution" or "Action".
+6.  **Note Taking**: Record important insights, requirements, and decisions in the project directory (e.g., `docs/design_notes.md`), NOT as ephemeral artifacts.
