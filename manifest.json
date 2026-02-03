@@ -21,10 +21,19 @@
   "content_scripts": [
     {
       "matches": ["https://www.appsheet.com/template/AppDef*"],
-      "js": ["content/content.js"],
+      "js": ["content/loader.js"],
       "css": ["content/styles.css"],
-      "run_at": "document_end",
-      "world": "MAIN"
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content/content.js",
+        "content/components/*.js",
+        "content/utils/*.js"
+      ],
+      "matches": ["https://www.appsheet.com/*"]
     }
   ]
 }
