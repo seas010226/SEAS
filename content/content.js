@@ -5,7 +5,7 @@ import { readProperties } from './utils/object-reader.js';
 console.log('SEAS: Content script loaded (Main World).');
 
 function waitForApp() {
-  if (window.currentApp && window.currentApp().appTemplate) {
+  if (window.currentApp?.().appTemplate) {
     init();
   } else {
     setTimeout(waitForApp, 1000);

@@ -24,8 +24,8 @@ export class SeasNode extends HTMLElement {
   }
 
   render() {
-    const key = this.getAttribute('key') || '';
-    const type = this.getAttribute('type') || 'unknown';
+    const key = this.getAttribute('key') ?? '';
+    const type = this.getAttribute('type') ?? 'unknown';
     const isExpandable = this.getAttribute('expandable') === 'true';
 
     this.shadowRoot.innerHTML = `
