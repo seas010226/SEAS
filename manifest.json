@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "SEAS - Steve's Extension for AppSheet",
+  "short_name": "SEAS",
+  "version": "0.0.0",
+  "description": "Enhances the AppSheet app editor.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.appsheet.com/template/AppDef"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "SEAS Settings"
+  },
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.appsheet.com/*"],
+      "js": ["content/content.js"],
+      "css": ["content/styles.css"],
+      "run_at": "document_end"
+    }
+  ]
+}
