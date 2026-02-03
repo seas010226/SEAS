@@ -21,3 +21,4 @@ When acting as **Developer**:
 -   **Guard Clauses**: Prefer guard clauses over nested `if` statements.
 -   **Control Flow**: Prefer `switch`/`case` over `if`/`else` chains where appropriate.
 -   **Git Usage**: Use Git commands (`git rm`, `git mv`) to manipulate files when suitable.
+-   **Modern JS**: Aggressively use Optional Chaining (`?.`) and Nullish Coalescing (`??`) to reduce verbosity and improve safety.
