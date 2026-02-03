@@ -17,8 +17,18 @@ export class SeasNode extends HTMLElement {
   }
 
   connectedCallback() {
-    this.addEventListener('click', this.handleClick.bind(this));
+    if (!this._boundClick) {
+      this._boundClick = this.handleClick.bind(this);
+    }
+    // Idempotent: adding same listener/fn ref multiple times does nothing
+    this.addEventListener('click', this._boundClick);
     this.render();
+  }
+
+  disconnectedCallback() {
+    if (this._boundClick) {
+      this.removeEventListener('click', this._boundClick);
+    }
   }
 
   handleClick(e) {

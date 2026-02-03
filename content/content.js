@@ -50,7 +50,10 @@ function createVirtualList(props) {
     node.data = prop.value;
   });
   
-  return vList.getElement();
+  const container = vList.getElement();
+  container._seasProps = props; // Store full props for navigation lookup
+  
+  return container;
 }
 
 function handleNavigate(e, explorer) {
