@@ -8,6 +8,8 @@ function waitForApp() {
   if (window.currentApp?.().appTemplate) {
     init();
   } else {
+    // TODO: Review polling robustness. Infinite polling is risky, but AppSheet apps can take a long time to load.
+    // Consider backing off or a very high max-retry limit.
     setTimeout(waitForApp, 1000);
   }
 }
