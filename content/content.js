@@ -77,38 +77,37 @@ function navigateToNode(nodes, index, explorer, mode = 'push', direction = 'next
   // Define Handlers
   const navHandlers = {};
   
-  // Prev Handler
-  if (index > 0) {
+  // Find Prev Expandable
+  let prevIndex = index - 1;
+  let targetPrevIndex = -1;
+  while(prevIndex >= 0) {
+    if (nodes[prevIndex].getAttribute('expandable') === 'true') {
+      targetPrevIndex = prevIndex;
+      break;
+    }
+    prevIndex--;
+  }
+
+  if (targetPrevIndex !== -1) {
     navHandlers.onPrev = () => {
-      // Find previous expandable node? Or just previous node?
-      // Assuming we navigate to *any* sibling, but usually we only want expandable ones?
-      // For now, let's navigate to immediate sibling.
-      // If sibling is NOT expandable, we might show a "leaf" view or skip it.
-      // Let's assume we skip non-expandable siblings for now or show them.
-      
-      // Let's try recursive check for previous expandable sibling
-      let prevIndex = index - 1;
-      while(prevIndex >= 0) {
-        if (nodes[prevIndex].getAttribute('expandable') === 'true') {
-          navigateToNode(nodes, prevIndex, explorer, 'replace', 'prev');
-          break;
-        }
-        prevIndex--;
-      }
+      navigateToNode(nodes, targetPrevIndex, explorer, 'replace', 'prev');
     };
   }
 
-  // Next Handler
-  if (index < nodes.length - 1) {
+  // Find Next Expandable
+  let nextIndex = index + 1;
+  let targetNextIndex = -1;
+  while(nextIndex < nodes.length) {
+    if (nodes[nextIndex].getAttribute('expandable') === 'true') {
+      targetNextIndex = nextIndex;
+      break;
+    }
+    nextIndex++;
+  }
+
+  if (targetNextIndex !== -1) {
     navHandlers.onNext = () => {
-      let nextIndex = index + 1;
-      while(nextIndex < nodes.length) {
-        if (nodes[nextIndex].getAttribute('expandable') === 'true') {
-          navigateToNode(nodes, nextIndex, explorer, 'replace', 'next');
-          break;
-        }
-        nextIndex++;
-      }
+      navigateToNode(nodes, targetNextIndex, explorer, 'replace', 'next');
     };
   }
 
