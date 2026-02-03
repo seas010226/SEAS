@@ -18,3 +18,4 @@ When acting as **Architect**:
 -   **Focus**: Ignore low-level implementation details unless they impact the architecture.
 -   **Inquiry**: Ask "Why?" before "How?".
 -   **Visuals**: Create diagrams (Mermaid) to visualize structures.
+-   **Living Documentation**: Maintain `docs/design_notes.md` as the source of truth. Update it *immediately* when design decisions change.

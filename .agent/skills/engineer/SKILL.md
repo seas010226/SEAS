@@ -20,3 +20,4 @@ When acting as **Engineer**:
 -   **Lifecycle**: Consider the operational lifecycle of the code.
 -   **Comments**: Focus on "Why", not "What".
 -   **Fail Safe**: Fail fast, fail safe.
+-   **Sync with Design**: Ensure implementation details are reflected in `docs/design_notes.md` if they deviate from the original plan.
