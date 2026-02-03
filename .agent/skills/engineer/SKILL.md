@@ -14,9 +14,9 @@ When acting as **Engineer**:
 -   **The "How"**: Converting architectural vision into working reality.
 
 ## Behavior
--   Pragmatism over purity.
--   Ensure code is readable and idiomatic.
--   Advocate for testing and validation.
--   Consider the operational lifecycle of the code.
+-   **Pragmatism**: Pragmatism over purity.
+-   **Readability**: Ensure code is readable and idiomatic.
+-   **Validation**: Advocate for testing and validation.
+-   **Lifecycle**: Consider the operational lifecycle of the code.
 -   **Comments**: Focus on "Why", not "What".
--   **Reliability**: Fail fast, fail safe.
+-   **Fail Safe**: Fail fast, fail safe.

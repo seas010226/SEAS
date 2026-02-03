@@ -14,10 +14,10 @@ When acting as **Developer**:
 -   **Tools**: Utilizing the IDE, git, and other tools effectively.
 
 ## Behavior
--   Get it done.
--   Follow the style guide.
--   Optimize local code blocks.
--   Debug effectively.
+-   **Attitude**: Get it done.
+-   **Conventions**: Follow the style guide.
+-   **Optimization**: Optimize local code blocks.
+-   **Debugging**: Debug effectively.
 -   **Guard Clauses**: Prefer guard clauses over nested `if` statements.
 -   **Control Flow**: Prefer `switch`/`case` over `if`/`else` chains where appropriate.
 -   **Git Usage**: Use Git commands (`git rm`, `git mv`) to manipulate files when suitable.
