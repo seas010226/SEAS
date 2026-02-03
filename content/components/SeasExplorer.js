@@ -15,15 +15,14 @@ export class SeasExplorer extends HTMLElement {
     style.textContent = `
       :host {
         position: fixed;
-        bottom: 16px;
-        right: 16px;
-        width: 320px;
-        height: 400px;
+        top: 0;
+        right: 0;
+        width: 350px;
+        height: 100vh;
         background: #202124;
         color: #e8eaed;
-        border: 1px solid #5f6368;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        border-left: 1px solid #5f6368;
+        box-shadow: -2px 0 6px rgba(0,0,0,0.3);
         display: flex;
         flex-direction: column;
         overflow: hidden;
@@ -31,12 +30,13 @@ export class SeasExplorer extends HTMLElement {
         font-family: 'Roboto', sans-serif;
       }
       .header {
-        padding: 8px 12px;
+        padding: 12px;
         background: #292a2d;
         border-bottom: 1px solid #3c4043;
         display: flex;
         align-items: center;
         gap: 8px;
+        flex-shrink: 0;
       }
       .title {
         font-size: 14px;
@@ -136,14 +136,18 @@ export class SeasExplorer extends HTMLElement {
     this.shadowRoot.appendChild(this.viewport);
   }
 
-  /**
-   * Pushes a new view onto the stack.
-   * @param {HTMLElement} viewNode
-   * @param {string} title
-   * @param {Object} navHandlers - { onNext: fn, onPrev: fn }
-   */
-  pushView(viewNode, title, navHandlers = {}) {
-    this.transitionView(viewNode, title, navHandlers, 'push');
+  connectedCallback() {
+    // Squeeze the Body
+    document.body.style.marginRight = '350px';
+    document.body.style.transition = 'margin-right 0.3s ease';
+    
+    this.render();
+    this.injectStyles();
+  }
+
+  disconnectedCallback() {
+    // Release the Body
+    document.body.style.marginRight = '';
   }
 
   /**
