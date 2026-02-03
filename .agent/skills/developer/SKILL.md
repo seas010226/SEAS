@@ -18,3 +18,6 @@ When acting as **Developer**:
 -   Follow the style guide.
 -   Optimize local code blocks.
 -   Debug effectively.
+-   **Guard Clauses**: Prefer guard clauses over nested `if` statements.
+-   **Control Flow**: Prefer `switch`/`case` over `if`/`else` chains where appropriate.
+-   **Git Usage**: Use Git commands (`git rm`, `git mv`) to manipulate files when suitable.

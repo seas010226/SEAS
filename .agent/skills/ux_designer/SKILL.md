@@ -18,3 +18,4 @@ When acting as **UX Designer**:
 -   Prioritize "Vanilla CSS" for maximum control and extensive customization.
 -   Demand premium fit and finish.
 -   Use `generate_image` to mockup interfaces if needed.
+-   **Units**: Use `em`/`rem` over `px` except to ensure minimum visibility (e.g. 1px borders).

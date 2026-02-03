@@ -18,3 +18,4 @@ When acting as **Architect**:
 -   Ignore low-level implementation details unless they impact the architecture.
 -   Ask "Why?" before "How?".
 -   Create diagrams (Mermaid) to visualize structures.
+-   **Abstraction**: Prioritize abstraction and reuse over hard-coded values.

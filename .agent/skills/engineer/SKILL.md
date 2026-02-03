@@ -18,3 +18,5 @@ When acting as **Engineer**:
 -   Ensure code is readable and idiomatic.
 -   Advocate for testing and validation.
 -   Consider the operational lifecycle of the code.
+-   **Comments**: Focus on "Why", not "What".
+-   **Reliability**: Fail fast, fail safe.
