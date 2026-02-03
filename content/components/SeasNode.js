@@ -10,13 +10,29 @@ export class SeasNode extends HTMLElement {
     return ['key', 'type', 'expandable'];
   }
 
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (oldValue !== newValue) {
+      this.render();
+    }
+  }
+
   connectedCallback() {
+    this.addEventListener('click', this.handleClick.bind(this));
     this.render();
+  }
+
+  handleClick(e) {
+    const isExpandable = this.getAttribute('expandable') === 'true';
+    if (isExpandable) {
+      console.log('SeasNode: Clicked!', this.getAttribute('key'));
+      this.handleExpand(e);
+    }
   }
 
   set data(value) {
     this._data = value;
-    this.render(); // Re-render with value preview if needed
+    // Setter triggers render, which uses current attributes
+    this.render(); 
   }
 
   get data() {
@@ -42,6 +58,7 @@ export class SeasNode extends HTMLElement {
         :host(:hover) {
           background: #292a2d;
         }
+        /* ... existing styles ... */
         .container {
           display: flex;
           align-items: center;
@@ -100,10 +117,8 @@ export class SeasNode extends HTMLElement {
         </div>
       </div>
     `;
-
-    if (isExpandable) {
-      this.addEventListener('click', this.handleExpand.bind(this));
-    }
+    
+    // No more addEventListener here
   }
 
   getIcon(type) {
