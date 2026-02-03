@@ -151,6 +151,16 @@ export class SeasExplorer extends HTMLElement {
   }
 
   /**
+   * Pushes a new view onto the stack.
+   * @param {HTMLElement} viewNode
+   * @param {string} title
+   * @param {Object} navHandlers - { onNext: fn, onPrev: fn }
+   */
+  pushView(viewNode, title, navHandlers = {}) {
+    this.transitionView(viewNode, title, navHandlers, 'push');
+  }
+
+  /**
    * Replaces the current view (Lateral Navigation).
    * @param {HTMLElement} viewNode 
    * @param {string} title 
