@@ -81,6 +81,22 @@ export class SeasExplorer extends HTMLElement {
         background: #202124;
         transition: transform 0.25s cubic-bezier(0.4, 0.0, 0.2, 1);
       }
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #202124; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #5f6368; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #80868b; 
+      }
+      
       /* Transitions */
       .slide-enter-right { transform: translateX(100%); }
       .slide-enter-left { transform: translateX(-100%); }
@@ -100,15 +116,15 @@ export class SeasExplorer extends HTMLElement {
     
     // Back Button
     this.backBtn = document.createElement('button');
-    this.backBtn.textContent = '←';
+    this.backBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>';
     this.backBtn.title = 'Back';
     this.backBtn.disabled = true;
     this.backBtn.onclick = () => this.popView();
 
     // Prev Sibling
     this.prevBtn = document.createElement('button');
-    this.prevBtn.textContent = '‹';
-    this.prevBtn.title = 'Previous';
+    this.prevBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>';
+    this.prevBtn.title = 'Previous Sibling';
     this.prevBtn.disabled = true;
     this.prevBtn.onclick = () => this.handleLateral('prev');
 
@@ -119,8 +135,8 @@ export class SeasExplorer extends HTMLElement {
 
     // Next Sibling
     this.nextBtn = document.createElement('button');
-    this.nextBtn.textContent = '›';
-    this.nextBtn.title = 'Next';
+    this.nextBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>';
+    this.nextBtn.title = 'Next Sibling';
     this.nextBtn.disabled = true;
     this.nextBtn.onclick = () => this.handleLateral('next');
 
