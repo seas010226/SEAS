@@ -94,7 +94,8 @@ export class SeasNode extends HTMLElement {
       composed: true,
       detail: {
         target: this._data,
-        key: this.getAttribute('key')
+        key: this.getAttribute('key'),
+        node: this
       }
     }));
   }

@@ -45,22 +45,10 @@ function renderList(props) {
 }
 
 function handleNavigate(e, explorer) {
-  // Capture context from event bubbling path if needed, 
-  // but simpler: we construct context from the View logic or passed data.
-  // Actually, 'seas-navigate' bubbles from `seas-node`. 
-  // To handle siblings, we need to know the *parent* list this node came from.
-  // We can infer this if we store the 'current list properties' in the stack 
-  // or re-read them.
-  
-  // BETTER APPROACH:
-  // The 'seas-navigate' event comes from a node. That node is part of a list. 
-  // We can traverse the DOM of the *current view* to find siblings.
-  
-  // e.target is the seas-node component.
-  // e.target.parentElement is the list container.
-  
-  const clickedNode = e.target;
-  const listContainer = clickedNode.parentElement; // The div containing all seas-nodes
+  // e.target is retargeted to the Shadow Host (seas-explorer) because of Shadow DOM.
+  // We must use the explicit node passed in detail.
+  const clickedNode = e.detail.node;
+  const listContainer = clickedNode.parentElement; 
   
   // Get all 'seas-node' siblings in order
   const allNodes = Array.from(listContainer.children).filter(n => n.tagName === 'SEAS-NODE');
